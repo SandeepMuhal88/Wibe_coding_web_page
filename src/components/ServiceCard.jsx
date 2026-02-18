@@ -3,73 +3,73 @@ import { Link } from 'react-router-dom';
 const ServiceCard = ({ service }) => {
     const { name, description, icon, pricing, rating, reviewsCount, slug } = service;
 
+    const colorMap = {
+        'ac-repair': { gradient: 'from-cyan-500/20 to-blue-500/20', border: 'border-cyan-500/20', hover: 'hover:border-cyan-500/50', badge: 'text-cyan-400' },
+        'electrician': { gradient: 'from-yellow-500/20 to-orange-500/20', border: 'border-yellow-500/20', hover: 'hover:border-yellow-500/50', badge: 'text-yellow-400' },
+        'plumbing': { gradient: 'from-blue-500/20 to-indigo-500/20', border: 'border-blue-500/20', hover: 'hover:border-blue-500/50', badge: 'text-blue-400' },
+        'bike-repair': { gradient: 'from-red-500/20 to-pink-500/20', border: 'border-red-500/20', hover: 'hover:border-red-500/50', badge: 'text-red-400' },
+        'car-repair': { gradient: 'from-purple-500/20 to-violet-500/20', border: 'border-purple-500/20', hover: 'hover:border-purple-500/50', badge: 'text-purple-400' },
+        'home-maintenance': { gradient: 'from-green-500/20 to-emerald-500/20', border: 'border-green-500/20', hover: 'hover:border-green-500/50', badge: 'text-green-400' },
+    };
+    const colors = colorMap[slug] || { gradient: 'from-indigo-500/20 to-purple-500/20', border: 'border-indigo-500/20', hover: 'hover:border-indigo-500/50', badge: 'text-indigo-400' };
+
     return (
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+        <div className={`glass-card rounded-2xl overflow-hidden border ${colors.border} ${colors.hover} group`}>
             <div className="p-6">
-                {/* Icon and Title */}
-                <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center space-x-3">
-                        <div className="text-4xl">{icon}</div>
-                        <div>
-                            <h3 className="text-xl font-bold text-gray-900">{name}</h3>
-                            <div className="flex items-center mt-1">
-                                <div className="flex items-center">
-                                    <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                                    </svg>
-                                    <span className="ml-1 text-sm font-medium text-gray-700">{rating}</span>
-                                </div>
-                                <span className="ml-2 text-sm text-gray-500">({reviewsCount} reviews)</span>
+                {/* Icon + Title + Rating */}
+                <div className="flex items-start gap-4 mb-4">
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colors.gradient} flex items-center justify-center text-3xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                        {icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-bold text-white mb-1 leading-tight">{name}</h3>
+                        <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1">
+                                <svg className="w-3.5 h-3.5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                                </svg>
+                                <span className="text-sm font-semibold text-yellow-400">{rating}</span>
                             </div>
+                            <span className="text-xs text-slate-500">({reviewsCount.toLocaleString()} reviews)</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{description}</p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-5">{description}</p>
 
-                {/* Pricing Section */}
-                <div className="space-y-3 mb-4">
-                    {/* Regular Pricing */}
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                        <div className="flex justify-between items-center">
-                            <div>
-                                <p className="text-xs text-green-700 font-medium">Regular Service</p>
-                                <p className="text-xs text-gray-600">{pricing.regular.time}</p>
-                            </div>
-                            <div className="text-right">
-                                <p className="text-lg font-bold text-green-700">
-                                    ₹{pricing.regular.price}
-                                    {pricing.regular.discount > 0 && (
-                                        <span className="ml-2 text-xs text-gray-500 line-through">
-                                            ₹{pricing.regular.price + pricing.regular.discount}
-                                        </span>
-                                    )}
-                                </p>
-                            </div>
+                {/* Pricing */}
+                <div className="space-y-2 mb-5">
+                    <div className="pricing-regular flex justify-between items-center">
+                        <div>
+                            <p className="text-xs font-semibold text-emerald-400">Regular Service</p>
+                            <p className="text-xs text-slate-500">{pricing.regular.time}</p>
+                        </div>
+                        <div className="text-right">
+                            <p className="text-lg font-black text-emerald-400">₹{pricing.regular.price}</p>
+                            {pricing.regular.discount > 0 && (
+                                <p className="text-xs text-slate-500 line-through">₹{pricing.regular.price + pricing.regular.discount}</p>
+                            )}
                         </div>
                     </div>
 
-                    {/* Immediate Pricing */}
-                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
-                        <div className="flex justify-between items-center">
-                            <div>
-                                <p className="text-xs text-orange-700 font-medium">Immediate Service</p>
-                                <p className="text-xs text-gray-600">{pricing.immediate.time}</p>
-                            </div>
-                            <div className="text-right">
-                                <p className="text-lg font-bold text-orange-700">₹{pricing.immediate.price}</p>
-                            </div>
+                    <div className="pricing-immediate flex justify-between items-center">
+                        <div>
+                            <p className="text-xs font-semibold text-amber-400">Immediate Service</p>
+                            <p className="text-xs text-slate-500">{pricing.immediate.time}</p>
+                        </div>
+                        <div className="text-right">
+                            <p className="text-lg font-black text-amber-400">₹{pricing.immediate.price}</p>
                         </div>
                     </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA */}
                 <Link
                     to={`/booking?service=${slug}`}
-                    className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-3 rounded-lg font-medium hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                    className="btn-primary block w-full text-center py-3 rounded-xl text-sm font-bold"
                 >
-                    Book Now
+                    Book Now →
                 </Link>
             </div>
         </div>
