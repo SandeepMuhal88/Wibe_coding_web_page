@@ -1,0 +1,241 @@
+.contact-page {
+    min-height: 100vh;
+}
+
+.contact-section {
+    padding-top: 60px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* Info Column */
+.contact-heading {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.contact-subheading {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.contact-info-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    transition: var(--transition);
+    text-decoration: none;
+    border-radius: var(--radius-md) !important;
+}
+
+.contact-info-card:hover {
+    transform: translateX(6px);
+    border-color: rgba(255, 107, 53, 0.4);
+}
+
+.ci-icon {
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ci-text {
+    flex: 1;
+}
+
+.ci-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+}
+
+.ci-detail {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.ci-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.ci-arrow {
+    color: var(--primary);
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.contact-info-card:hover .ci-arrow {
+    transform: translateX(4px);
+}
+
+/* FAQ Teaser */
+.faq-teaser {
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    border-radius: var(--radius-md) !important;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    margin-top: 2px;
+}
+
+.faq-teaser h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.faq-list li {
+    font-size: 0.825rem;
+    color: var(--text-muted);
+}
+
+/* Form Column */
+.contact-form-card {
+    padding: 36px 32px;
+}
+
+.form-card-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.form-card-sub {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.cf-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.cf-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cf-group input,
+.cf-group textarea {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 13px 16px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-family: var(--font-primary);
+    transition: var(--transition);
+    outline: none;
+    resize: vertical;
+}
+
+.cf-group input::placeholder,
+.cf-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.cf-group input:focus,
+.cf-group textarea:focus {
+    border-color: var(--primary);
+    background: rgba(255, 107, 53, 0.04);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.cf-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.cf-submit {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    margin-top: 4px;
+}
+
+/* Success state */
+.cf-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 20px;
+    animation: fadeInUp 0.5s ease;
+}
+
+.cf-success-icon {
+    font-size: 4rem;
+}
+
+.cf-success h3 {
+    font-size: 1.5rem;
+}
+
+.cf-success p {
+    color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-form-card {
+        padding: 24px 16px;
+    }
+
+    .cf-row {
+        grid-template-columns: 1fr;
+    }
+}

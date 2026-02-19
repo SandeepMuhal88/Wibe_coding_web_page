@@ -1,274 +1,300 @@
 import { Link } from 'react-router-dom';
+import './Home.css';
+
+/* ── Service Icons ── */
+const services = [
+    {
+        icon: '⚡',
+        title: 'Electrician',
+        desc: 'Wiring, short circuit fix, fan/light installation aur har electrical kaam.',
+        color: '#FACC15',
+        link: '/services',
+    },
+    {
+        icon: '❄️',
+        title: 'AC Service',
+        desc: 'AC cleaning, gas refill, repair aur installation — sab kuch ek jagah.',
+        color: '#00D4FF',
+        link: '/services',
+    },
+    {
+        icon: '🔧',
+        title: 'Mechanic',
+        desc: 'Machine, motor, pump repair — expert mistri apke ghar pe.',
+        color: '#A78BFA',
+        link: '/services',
+    },
+    {
+        icon: '🚗',
+        title: 'Car Service',
+        desc: 'Oil change, tyre, brake check — doorstep car service.',
+        color: '#34D399',
+        link: '/services',
+    },
+];
+
+const stats = [
+    { value: '10,000+', label: 'Happy Customers' },
+    { value: '500+', label: 'Expert Mistriyan' },
+    { value: '4.9★', label: 'Average Rating' },
+    { value: '24/7', label: 'Service Available' },
+];
+
+const testimonials = [
+    {
+        name: 'Rahul Sharma',
+        city: 'Delhi',
+        rating: 5,
+        text: 'Bahut accha service tha! AC wallah bhai ne 30 min mein sab theek kar diya. Bahut professional the.',
+        avatar: 'RS',
+        avatarColor: '#FF6B35',
+    },
+    {
+        name: 'Priya Verma',
+        city: 'Noida',
+        rating: 5,
+        text: 'INcall app se booking kar ke ek ghante mein electrician aa gaya. Kaam bhi seedha ho gaya. Highly recommended!',
+        avatar: 'PV',
+        avatarColor: '#00D4FF',
+    },
+    {
+        name: 'Amit Kumar',
+        city: 'Gurgaon',
+        rating: 5,
+        text: 'Very affordable aur trusted service. Mechanic ne bike ki problem pehli baar mein pakad li. Zabardast!',
+        avatar: 'AK',
+        avatarColor: '#A78BFA',
+    },
+];
 
 const Home = () => {
     return (
-        <div className="min-h-screen bg-gradient-hero">
-            {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-pattern">
-                {/* Decorative blobs */}
-                <div className="blob-1 top-20 left-10 opacity-60"></div>
-                <div className="blob-2 bottom-20 right-10 opacity-60"></div>
-                <div className="blob-3 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40"></div>
+        <main className="home">
+            {/* ── Hero ── */}
+            <section className="hero">
+                {/* Blobs */}
+                <div className="hero-blob blob-1" />
+                <div className="hero-blob blob-2" />
+                <div className="hero-blob blob-3" />
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-                    <div className="text-center">
-                        {/* Badge */}
-                        <div className="fade-in-up inline-flex items-center gap-2 badge badge-primary mb-6">
-                            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-                            Trusted by 10,000+ Customers
-                        </div>
+                <div className="container hero-inner">
+                    <div className="hero-content">
+                        <span className="badge animate-fadeInUp">🏆 India's #1 Home Service App</span>
 
-                        {/* Main Heading */}
-                        <h1 className="fade-in-up delay-100 text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight hero-text-shadow">
-                            Book Trusted
-                            <br />
-                            <span className="gradient-text">Technicians</span>
-                            <br />
-                            <span className="text-4xl md:text-6xl lg:text-7xl text-slate-300">Instantly</span>
+                        <h1 className="hero-title animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+                            Ghar Baithe Bulao<br />
+                            <span className="gradient-text">Expert Mistriyaan</span>
                         </h1>
 
-                        <p className="fade-in-up delay-200 text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                            Professional home services at your doorstep. AC repair, plumbing, electrical work, and more — all in one platform.
+                        <p className="hero-subtitle animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+                            AC service 🆑, Electrician ⚡, Mechanic 🔧 — sab ek <strong>INcall</strong> pe.<br />
+                            Verified professionals, guaranteed work, fair price.
                         </p>
 
-                        {/* CTA Buttons */}
-                        <div className="fade-in-up delay-300 flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                            <Link
-                                to="/booking"
-                                className="btn-primary btn-glow px-8 py-4 text-lg font-bold rounded-2xl inline-flex items-center justify-center gap-3"
-                            >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        <div className="hero-actions animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
+                            <Link to="/booking" className="btn btn-primary hero-btn-main">
+                                <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                                 </svg>
-                                Book Now — It's Free
+                                Abhi Book Karo
                             </Link>
-                            <Link
-                                to="/services"
-                                className="btn-secondary px-8 py-4 text-lg font-bold rounded-2xl inline-flex items-center justify-center gap-3"
-                            >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                                </svg>
-                                Explore Services
+                            <Link to="/services" className="btn btn-outline">
+                                Sabhi Services Dekho →
                             </Link>
                         </div>
 
-                        {/* Stats */}
-                        <div className="fade-in-up delay-400 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
-                            {[
-                                { value: '10K+', label: 'Happy Customers', icon: '😊' },
-                                { value: '500+', label: 'Expert Technicians', icon: '👨‍🔧' },
-                                { value: '4.8★', label: 'Average Rating', icon: '⭐' },
-                            ].map((stat, i) => (
-                                <div key={i} className="stat-card">
-                                    <div className="text-2xl mb-1">{stat.icon}</div>
-                                    <div className="text-2xl md:text-3xl font-black gradient-text">{stat.value}</div>
-                                    <div className="text-xs md:text-sm text-slate-400 mt-1">{stat.label}</div>
+                        {/* Trust Badges */}
+                        <div className="hero-trust animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+                            <div className="trust-item">
+                                <span className="trust-icon">✅</span>
+                                <span>Verified Experts</span>
+                            </div>
+                            <div className="trust-item">
+                                <span className="trust-icon">💰</span>
+                                <span>Fair Pricing</span>
+                            </div>
+                            <div className="trust-item">
+                                <span className="trust-icon">⚡</span>
+                                <span>Quick Response</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Hero Visual */}
+                    <div className="hero-visual animate-float">
+                        <div className="hero-card-main glass-card">
+                            <div className="hero-card-header">
+                                <div className="hero-avatar">👷</div>
+                                <div>
+                                    <div className="hero-name">Rajesh Kumar</div>
+                                    <div className="hero-role">AC Technician • 6 yrs exp</div>
                                 </div>
-                            ))}
+                                <div className="hero-rating">⭐ 4.9</div>
+                            </div>
+                            <div className="hero-card-status">
+                                <span className="status-dot live"></span>
+                                <span>Available Now — ETA 25 min</span>
+                            </div>
+                            <div className="hero-card-services">
+                                <span className="service-chip">❄️ AC Repair</span>
+                                <span className="service-chip">🔧 Installation</span>
+                                <span className="service-chip">💨 Cleaning</span>
+                            </div>
+                        </div>
+
+                        {/* Floating mini cards */}
+                        <div className="mini-card mc-1 glass-card">
+                            <span>⚡</span>
+                            <div>
+                                <div className="mini-title">Electrician</div>
+                                <div className="mini-sub">3 available nearby</div>
+                            </div>
+                        </div>
+                        <div className="mini-card mc-2 glass-card">
+                            <span>🛡️</span>
+                            <div>
+                                <div className="mini-title">Verified & Safe</div>
+                                <div className="mini-sub">Background checked</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Scroll indicator */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500">
-                    <span className="text-xs font-medium">Scroll to explore</span>
-                    <div className="w-5 h-8 border-2 border-slate-600 rounded-full flex items-start justify-center p-1">
-                        <div className="w-1 h-2 bg-indigo-400 rounded-full animate-bounce"></div>
-                    </div>
+                {/* Scroll chevron */}
+                <div className="scroll-hint">
+                    <span>Scroll</span>
+                    <div className="scroll-arrow">↓</div>
                 </div>
             </section>
 
-            {/* How It Works Section */}
-            <section className="py-24 bg-gradient-section relative overflow-hidden">
-                <div className="blob-1 top-0 right-0 opacity-30"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <span className="badge badge-primary mb-4">Simple Process</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                            How It <span className="gradient-text">Works</span>
-                        </h2>
-                        <p className="text-slate-400 text-lg max-w-xl mx-auto">
-                            Book your service in 3 simple steps and get it done today
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                        {[
-                            { step: '01', icon: '🔍', title: 'Select Service', desc: 'Choose from our wide range of professional home services' },
-                            { step: '02', icon: '⏰', title: 'Choose Time', desc: 'Pick immediate service or schedule for a convenient time' },
-                            { step: '03', icon: '✅', title: 'Confirm Booking', desc: 'Fill in your details and get instant booking confirmation' },
-                        ].map((item, i) => (
-                            <div key={i} className="relative glass-card rounded-2xl p-8 text-center group">
-                                {/* Step number */}
-                                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                                    <span className="badge badge-primary text-xs font-black px-3 py-1">{item.step}</span>
-                                </div>
-                                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center text-4xl border border-indigo-500/20 group-hover:border-indigo-500/50 transition-all duration-300 group-hover:scale-110">
-                                    {item.icon}
-                                </div>
-                                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+            {/* ── Stats ── */}
+            <section className="stats-section">
+                <div className="container">
+                    <div className="stats-grid">
+                        {stats.map((s, i) => (
+                            <div key={i} className="stat-card glass-card">
+                                <div className="stat-value gradient-text">{s.value}</div>
+                                <div className="stat-label">{s.label}</div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Services Section */}
-            <section className="py-24 section-dark relative overflow-hidden">
-                <div className="blob-2 bottom-0 left-0 opacity-30"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <span className="badge badge-primary mb-4">What We Offer</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                            Our <span className="gradient-text">Services</span>
-                        </h2>
-                        <p className="text-slate-400 text-lg max-w-xl mx-auto">
-                            Professional solutions for all your home service needs
-                        </p>
+            {/* ── Services Preview ── */}
+            <section className="section services-preview">
+                <div className="container">
+                    <div className="section-header">
+                        <span className="badge">🛠️ What We Offer</span>
+                        <h2>Popular <span className="gradient-text">Services</span></h2>
+                        <p>Ghar ke har kaam ke liye trained professionals – ek call par available.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[
-                            { icon: '❄️', name: 'AC Repair & Servicing', desc: 'Installation, gas refilling & complete servicing', price: '₹399', color: 'from-cyan-500/20 to-blue-500/20', border: 'border-cyan-500/20' },
-                            { icon: '⚡', name: 'Electrician Services', desc: 'Wiring, switch repairs & appliance installation', price: '₹299', color: 'from-yellow-500/20 to-orange-500/20', border: 'border-yellow-500/20' },
-                            { icon: '🔧', name: 'Plumbing Services', desc: 'Leak fixes, pipe repairs & drain cleaning', price: '₹349', color: 'from-blue-500/20 to-indigo-500/20', border: 'border-blue-500/20' },
-                            { icon: '🏍️', name: 'Bike Repair', desc: 'On-site servicing, oil change & maintenance', price: '₹449', color: 'from-red-500/20 to-pink-500/20', border: 'border-red-500/20' },
-                            { icon: '🚗', name: 'Car Repair & Service', desc: 'Comprehensive servicing & mechanical repairs', price: '₹799', color: 'from-purple-500/20 to-violet-500/20', border: 'border-purple-500/20' },
-                            { icon: '🏠', name: 'Home Maintenance', desc: 'Carpentry, painting & handyman services', price: '₹499', color: 'from-green-500/20 to-emerald-500/20', border: 'border-green-500/20' },
-                        ].map((service, i) => (
-                            <div key={i} className={`glass-card rounded-2xl p-6 border ${service.border} group`}>
-                                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                                    {service.icon}
+                    <div className="services-grid">
+                        {services.map((s, i) => (
+                            <Link key={i} to={s.link} className="service-card glass-card" style={{ '--accent-color': s.color }}>
+                                <div className="service-card-icon" style={{ background: `${s.color}18`, border: `1px solid ${s.color}30` }}>
+                                    <span>{s.icon}</span>
                                 </div>
-                                <h3 className="text-lg font-bold text-white mb-2">{service.name}</h3>
-                                <p className="text-slate-400 text-sm mb-4">{service.desc}</p>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-indigo-400 font-bold">Starting {service.price}</span>
-                                    <Link
-                                        to="/booking"
-                                        className="text-xs font-semibold text-slate-400 hover:text-indigo-400 transition-colors flex items-center gap-1"
-                                    >
-                                        Book →
-                                    </Link>
+                                <h3 className="service-card-title">{s.title}</h3>
+                                <p className="service-card-desc">{s.desc}</p>
+                                <div className="service-card-cta" style={{ color: s.color }}>
+                                    Book Now →
                                 </div>
-                            </div>
+                                <div className="service-card-glow" style={{ background: `${s.color}10` }}></div>
+                            </Link>
                         ))}
                     </div>
 
-                    <div className="text-center mt-12">
-                        <Link
-                            to="/services"
-                            className="btn-secondary px-8 py-3 text-sm font-semibold rounded-xl inline-flex items-center gap-2"
-                        >
-                            View All Services
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
+                    <div className="services-more-link">
+                        <Link to="/services" className="btn btn-outline">
+                            View All Services →
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* Why Choose Us */}
-            <section className="py-24 bg-gradient-section relative overflow-hidden">
-                <div className="blob-1 top-0 left-0 opacity-20"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <span className="badge badge-primary mb-4">Why Incall</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                            Why Choose <span className="gradient-text">Us?</span>
-                        </h2>
+            {/* ── How It Works ── */}
+            <section className="section how-it-works">
+                <div className="container">
+                    <div className="section-header">
+                        <span className="badge">📱 Process</span>
+                        <h2>Kitna Aasaan Hai <span className="gradient-text">Booking</span></h2>
+                        <p>Sirf 3 steps mein apka expert mistri apke darwaaze par.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="steps-container">
+                        <div className="step-connector"></div>
                         {[
-                            { icon: '🔒', title: 'Verified Pros', desc: 'Background-checked & trained technicians', color: 'text-indigo-400' },
-                            { icon: '⚡', title: 'Quick Service', desc: 'Same-day service available on demand', color: 'text-yellow-400' },
-                            { icon: '💰', title: 'Fair Pricing', desc: 'No hidden charges, pay what you see', color: 'text-green-400' },
-                            { icon: '✅', title: '30-Day Warranty', desc: 'Quality guarantee on all work done', color: 'text-cyan-400' },
-                        ].map((item, i) => (
-                            <div key={i} className="glass-card rounded-2xl p-6 text-center group">
-                                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-                                <h3 className={`text-lg font-bold mb-2 ${item.color}`}>{item.title}</h3>
-                                <p className="text-slate-400 text-sm">{item.desc}</p>
+                            { num: '01', icon: '📱', title: 'Service Chuno', desc: 'Apni zaroorat ki service select karo — AC, Electrician, Mechanic ya aur koi.' },
+                            { num: '02', icon: '📅', title: 'Time Book Karo', desc: 'Apni suvidha ka time aur address fill karo. Booking 2 minute mein.' },
+                            { num: '03', icon: '🏠', title: 'Expert Aayega', desc: 'Verified mistri apke ghar aa k professionally kaam karega. Guaranteed quality.' },
+                        ].map((step, i) => (
+                            <div key={i} className="step-card glass-card">
+                                <div className="step-num">{step.num}</div>
+                                <div className="step-icon">{step.icon}</div>
+                                <h3 className="step-title">{step.title}</h3>
+                                <p className="step-desc">{step.desc}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Testimonials */}
-            <section className="py-24 section-dark relative overflow-hidden">
-                <div className="blob-3 bottom-0 right-0 opacity-30"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <span className="badge badge-primary mb-4">Reviews</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                            What Customers <span className="gradient-text">Say</span>
-                        </h2>
-                        <p className="text-slate-400 text-lg">Real reviews from real customers</p>
+            {/* ── Testimonials ── */}
+            <section className="section testimonials">
+                <div className="container">
+                    <div className="section-header">
+                        <span className="badge">💬 Reviews</span>
+                        <h2>Log Kya Kehte Hain <span className="gradient-text">INcall</span> Ke Baare Mein</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[
-                            { name: 'Rajesh Kumar', location: 'Delhi', rating: 5, comment: 'Excellent service! The AC technician arrived on time and fixed my AC in just 30 minutes. Very professional and affordable.', service: 'AC Repair' },
-                            { name: 'Priya Sharma', location: 'Mumbai', rating: 5, comment: 'Amazing experience with the electrician service. Quick response and solved all my electrical issues efficiently.', service: 'Electrician' },
-                            { name: 'Amit Patel', location: 'Bangalore', rating: 4, comment: 'Good service for plumbing. The technician was skilled and completed the work neatly. Will use again!', service: 'Plumbing' },
-                        ].map((t, i) => (
-                            <div key={i} className="testimonial-card">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-black text-lg">
-                                        {t.name.charAt(0)}
+                    <div className="grid-3">
+                        {testimonials.map((t, i) => (
+                            <div key={i} className="testimonial-card glass-card">
+                                <div className="stars">
+                                    {'⭐'.repeat(t.rating)}
+                                </div>
+                                <p className="testimonial-text">"{t.text}"</p>
+                                <div className="testimonial-user">
+                                    <div className="user-avatar" style={{ background: `${t.avatarColor}20`, color: t.avatarColor, border: `1px solid ${t.avatarColor}40` }}>
+                                        {t.avatar}
                                     </div>
                                     <div>
-                                        <div className="font-bold text-white">{t.name}</div>
-                                        <div className="text-xs text-slate-400">{t.location}</div>
+                                        <div className="user-name">{t.name}</div>
+                                        <div className="user-city">📍 {t.city}</div>
                                     </div>
-                                    <div className="ml-auto badge badge-primary">{t.service}</div>
                                 </div>
-                                <div className="flex gap-1 mb-3">
-                                    {[...Array(t.rating)].map((_, j) => (
-                                        <svg key={j} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                                        </svg>
-                                    ))}
-                                </div>
-                                <p className="text-slate-300 text-sm leading-relaxed">"{t.comment}"</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-24 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-animated opacity-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20"></div>
-                <div className="blob-1 top-0 left-1/4 opacity-40"></div>
-                <div className="blob-2 bottom-0 right-1/4 opacity-40"></div>
-                <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="glass rounded-3xl p-12 border border-indigo-500/20">
-                        <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-                            Ready to Get <span className="gradient-text">Started?</span>
-                        </h2>
-                        <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
-                            Book your home service today and experience the convenience of professional service at your doorstep.
-                        </p>
-                        <Link
-                            to="/booking"
-                            className="btn-primary btn-glow px-10 py-4 text-lg font-bold rounded-2xl inline-flex items-center gap-3"
-                        >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                            Book Your Service Now
-                        </Link>
+            {/* ── CTA Banner ── */}
+            <section className="cta-section">
+                <div className="container">
+                    <div className="cta-box glass-card">
+                        <div className="cta-blobs">
+                            <div className="cta-blob-1"></div>
+                            <div className="cta-blob-2"></div>
+                        </div>
+                        <div className="cta-content">
+                            <h2>Aaj Hi Book Karo,<br /><span className="gradient-text">Ghar Baithe Service Pao</span></h2>
+                            <p>Har service pe satisfaction guarantee — ya paisa wapas!</p>
+                            <div className="cta-actions">
+                                <Link to="/booking" className="btn btn-primary">
+                                    📞 Abhi Book Karo
+                                </Link>
+                                <a href="tel:+919999999999" className="btn btn-outline">
+                                    Call: +91 99999 99999
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 

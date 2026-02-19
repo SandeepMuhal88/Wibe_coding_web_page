@@ -1,143 +1,238 @@
 import { useState } from 'react';
-import { servicesData } from '../data/servicesData';
-import ServiceCard from '../components/ServiceCard';
+import { Link } from 'react-router-dom';
+import './Services.css';
+
+const categories = [
+    { id: 'all', label: 'All Services', icon: '🏠' },
+    { id: 'electric', label: 'Electrical', icon: '⚡' },
+    { id: 'ac', label: 'AC & HVAC', icon: '❄️' },
+    { id: 'mechanic', label: 'Mechanic', icon: '🔧' },
+    { id: 'vehicle', label: 'Vehicle', icon: '🚗' },
+    { id: 'other', label: 'Other', icon: '🔩' },
+];
+
+const allServices = [
+    /* Electrical */
+    {
+        id: 1, category: 'electric',
+        icon: '⚡', title: 'Electrician',
+        desc: 'Wiring, short circuit repair, switchboard replacement, fan/light installation. Har electrical kaam ke liye expert milistry.',
+        price: '₹199 se shuru',
+        rating: 4.9, reviews: 2840,
+        time: '30-60 min',
+        features: ['Wiring & Rewiring', 'Switch/Plug Repair', 'Light Installation', 'Fan Fitting', 'MCB/Fuse Repair'],
+        color: '#FACC15',
+    },
+    {
+        id: 2, category: 'electric',
+        icon: '🔌', title: 'Inverter & Battery',
+        desc: 'Inverter installation, battery check, UPS repair aur maintenance service apke ghar par.',
+        price: '₹299 se shuru',
+        rating: 4.8, reviews: 1200,
+        time: '45-90 min',
+        features: ['Battery Checkup', 'Inverter Repair', 'UPS Setup', 'Wiring Connection'],
+        color: '#F59E0B',
+    },
+    /* AC */
+    {
+        id: 3, category: 'ac',
+        icon: '❄️', title: 'AC Service & Repair',
+        desc: 'AC deep cleaning, gas refill, PCB repair, compressor check — sab ek jagah milega.',
+        price: '₹499 se shuru',
+        rating: 4.9, reviews: 4150,
+        time: '1-2 ghante',
+        features: ['Deep Cleaning', 'Gas Refill', 'PCB Repair', 'Cooling Check', 'Installation'],
+        color: '#00D4FF',
+    },
+    {
+        id: 4, category: 'ac',
+        icon: '🌡️', title: 'AC Installation',
+        desc: 'Naya AC install karwao — split ya window, sab types ka professional installation.',
+        price: '₹699 se shuru',
+        rating: 4.8, reviews: 980,
+        time: '2-3 ghante',
+        features: ['Wall Mounting', 'Pipe Fitting', 'Gas Charging', 'Test Run', 'Demo'],
+        color: '#38BDF8',
+    },
+    /* Mechanic */
+    {
+        id: 5, category: 'mechanic',
+        icon: '🔧', title: 'General Mechanic',
+        desc: 'Motor, pump, machine — koi bhi mechanical kaam ke liye expert mistri.',
+        price: '₹299 se shuru',
+        rating: 4.7, reviews: 1670,
+        time: '1-2 ghante',
+        features: ['Motor Repair', 'Pump Servicing', 'Belt & Pulley', 'Machine Maintenance'],
+        color: '#A78BFA',
+    },
+    {
+        id: 6, category: 'mechanic',
+        icon: '🚿', title: 'Plumber',
+        desc: 'Pipe repair, tap replacement, geyser installation, bathroom fitting aur drain cleaning.',
+        price: '₹199 se shuru',
+        rating: 4.8, reviews: 3200,
+        time: '30-90 min',
+        features: ['Pipe Repair', 'Tap Fitting', 'Geyser Install', 'Drain Clean', 'Leakage Fix'],
+        color: '#60A5FA',
+    },
+    /* Vehicle */
+    {
+        id: 7, category: 'vehicle',
+        icon: '🚗', title: 'Car Service',
+        desc: 'Doorstep car service — oil change, tyre rotation, brake check, AC recharge aur full checkup.',
+        price: '₹799 se shuru',
+        rating: 4.8, reviews: 2100,
+        time: '2-3 ghante',
+        features: ['Oil Change', 'Tyre Check', 'Brake Repair', 'Car AC Service', 'Full Checkup'],
+        color: '#34D399',
+    },
+    {
+        id: 8, category: 'vehicle',
+        icon: '🏍️', title: 'Bike Service',
+        desc: 'Bike ka full service — chain lube, oil change, brake checkup, tyre pressure — sabkuch apke ghar pe.',
+        price: '₹399 se shuru',
+        rating: 4.9, reviews: 1890,
+        time: '1-2 ghante',
+        features: ['Engine Oil', 'Chain Lubrication', 'Brake Check', 'Tyre Pressure', 'Wash & Polish'],
+        color: '#F472B6',
+    },
+    /* Other */
+    {
+        id: 9, category: 'other',
+        icon: '🎨', title: 'Painter',
+        desc: 'Wall painting, POP work, texture design — professional painters at affordable price.',
+        price: '₹599 se shuru',
+        rating: 4.7, reviews: 870,
+        time: 'Per day basis',
+        features: ['Interior Painting', 'Exterior Painting', 'POP Work', 'Texture Design', 'Waterproofing'],
+        color: '#FB923C',
+    },
+    {
+        id: 10, category: 'other',
+        icon: '📺', title: 'TV / Appliance Repair',
+        desc: 'LED TV, washing machine, refrigerator — sab ka repair apke ghar pe.',
+        price: '₹249 se shuru',
+        rating: 4.8, reviews: 1450,
+        time: '1-2 ghante',
+        features: ['LED TV Repair', 'Washing Machine', 'Refrigerator', 'Microwave', 'Geyser'],
+        color: '#818CF8',
+    },
+];
 
 const Services = () => {
-    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [activeCategory, setActiveCategory] = useState('all');
+    const [selectedService, setSelectedService] = useState(null);
 
-    const categories = [
-        { id: 'all', name: 'All Services', icon: '🔥' },
-        { id: 'repair', name: 'Repair', icon: '🔧' },
-        { id: 'maintenance', name: 'Maintenance', icon: '⚙️' },
-        { id: 'installation', name: 'Installation', icon: '🔌' }
-    ];
+    const filtered = activeCategory === 'all'
+        ? allServices
+        : allServices.filter(s => s.category === activeCategory);
 
     return (
-        <div className="min-h-screen bg-gradient-hero">
-            {/* Hero */}
-            <section className="relative pt-32 pb-20 overflow-hidden grid-pattern">
-                <div className="blob-1 top-10 right-10 opacity-40"></div>
-                <div className="blob-2 bottom-0 left-10 opacity-30"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center fade-in-up">
-                        <span className="badge badge-primary mb-4">What We Offer</span>
-                        <h1 className="text-5xl md:text-7xl font-black text-white mb-6">
-                            Our <span className="gradient-text">Services</span>
-                        </h1>
-                        <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
-                            Professional home services delivered right to your doorstep. Choose from our comprehensive range and book instantly.
-                        </p>
+        <main className="services-page">
+            {/* Page Hero */}
+            <section className="page-hero">
+                <div className="page-hero-blob blob-a" />
+                <div className="page-hero-blob blob-b" />
+                <div className="container page-hero-inner">
+                    <span className="badge">🛠️ All Services</span>
+                    <h1>Hamare <span className="gradient-text">Services</span></h1>
+                    <p>Professional, verified aur affordable home services — sab ek platform pe.</p>
+                </div>
+            </section>
+
+            {/* Category Filter */}
+            <section className="filter-section">
+                <div className="container">
+                    <div className="category-tabs">
+                        {categories.map(cat => (
+                            <button
+                                key={cat.id}
+                                className={`category-tab ${activeCategory === cat.id ? 'active' : ''}`}
+                                onClick={() => setActiveCategory(cat.id)}
+                            >
+                                <span>{cat.icon}</span>
+                                <span>{cat.label}</span>
+                            </button>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* Services Grid */}
-            <section className="py-16 section-dark">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    {/* Category Filter */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-12">
-                        {categories.map((cat) => (
-                            <button
-                                key={cat.id}
-                                onClick={() => setSelectedCategory(cat.id)}
-                                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${selectedCategory === cat.id
-                                        ? 'btn-primary'
-                                        : 'glass border border-white/10 text-slate-300 hover:text-white hover:border-indigo-500/30'
-                                    }`}
+            <section className="services-list section">
+                <div className="container">
+                    <div className="svc-count">
+                        <span className="gradient-text">{filtered.length}</span> services found
+                    </div>
+                    <div className="svc-grid">
+                        {filtered.map(svc => (
+                            <div
+                                key={svc.id}
+                                className="svc-card glass-card"
+                                style={{ '--svc-color': svc.color }}
                             >
-                                <span>{cat.icon}</span>
-                                {cat.name}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {servicesData.map((service) => (
-                            <ServiceCard key={service.id} service={service} />
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* What Makes Us Different */}
-            <section className="py-20 bg-gradient-section relative overflow-hidden">
-                <div className="blob-3 top-0 right-0 opacity-30"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-14">
-                        <span className="badge badge-primary mb-4">Our Edge</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                            What Makes Us <span className="gradient-text">Different</span>
-                        </h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            { icon: '👨‍🔧', title: 'Expert Technicians', desc: 'All our technicians are background-verified, trained professionals with years of experience.', color: 'from-indigo-500/20 to-purple-500/20', border: 'border-indigo-500/20' },
-                            { icon: '📱', title: 'Easy Booking', desc: 'Book services in just a few clicks. Choose your preferred time slot and get instant confirmation.', color: 'from-cyan-500/20 to-blue-500/20', border: 'border-cyan-500/20' },
-                            { icon: '🛡️', title: 'Service Warranty', desc: 'All our services come with a 30-day warranty. If you face any issues, we\'ll fix them for free.', color: 'from-emerald-500/20 to-green-500/20', border: 'border-emerald-500/20' },
-                        ].map((item, i) => (
-                            <div key={i} className={`glass-card rounded-2xl p-8 text-center border ${item.border}`}>
-                                <div className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-4xl`}>
-                                    {item.icon}
+                                {/* Card Top */}
+                                <div className="svc-card-top">
+                                    <div className="svc-icon-wrap" style={{ background: `${svc.color}15`, border: `1px solid ${svc.color}25` }}>
+                                        <span className="svc-icon">{svc.icon}</span>
+                                    </div>
+                                    <div className="svc-meta">
+                                        <span className="svc-rating">⭐ {svc.rating}</span>
+                                        <span className="svc-reviews">({svc.reviews} reviews)</span>
+                                    </div>
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+
+                                {/* Title & Desc */}
+                                <h3 className="svc-title">{svc.title}</h3>
+                                <p className="svc-desc">{svc.desc}</p>
+
+                                {/* Features */}
+                                <div className="svc-features">
+                                    {svc.features.slice(0, 3).map(f => (
+                                        <span key={f} className="svc-feature-chip">✓ {f}</span>
+                                    ))}
+                                    {svc.features.length > 3 && (
+                                        <span className="svc-feature-more">+{svc.features.length - 3} more</span>
+                                    )}
+                                </div>
+
+                                {/* Footer */}
+                                <div className="svc-card-footer">
+                                    <div className="svc-info">
+                                        <div className="svc-price" style={{ color: svc.color }}>{svc.price}</div>
+                                        <div className="svc-time">⏱ {svc.time}</div>
+                                    </div>
+                                    <Link
+                                        to={`/booking?service=${encodeURIComponent(svc.title)}`}
+                                        className="btn btn-primary svc-book-btn"
+                                        style={{ background: `linear-gradient(135deg, ${svc.color}dd, ${svc.color}aa)` }}
+                                    >
+                                        Book Now
+                                    </Link>
+                                </div>
+
+                                {/* Glow on hover */}
+                                <div className="svc-glow" style={{ background: `radial-gradient(circle at center, ${svc.color}08, transparent 70%)` }}></div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Pricing Info */}
-            <section className="py-20 section-dark relative overflow-hidden">
-                <div className="blob-1 bottom-0 left-0 opacity-20"></div>
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-14">
-                        <span className="badge badge-primary mb-4">Pricing</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                            Transparent <span className="gradient-text">Pricing</span>
-                        </h2>
-                        <p className="text-slate-400 text-lg">No hidden charges. Choose between regular and immediate service options.</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="glass-card rounded-2xl p-8 border border-emerald-500/20">
-                            <div className="text-4xl mb-4">📅</div>
-                            <h3 className="text-2xl font-bold text-white mb-4">Regular Service</h3>
-                            <ul className="space-y-3 mb-6">
-                                {['Schedule for a convenient time', 'Lower service charges', 'Plan your day better'].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-300 text-sm">
-                                        <span className="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center flex-shrink-0">
-                                            <svg className="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                            <p className="text-emerald-400 font-bold">Best for planned maintenance</p>
-                        </div>
-                        <div className="glass-card rounded-2xl p-8 border border-amber-500/20">
-                            <div className="text-4xl mb-4">⚡</div>
-                            <h3 className="text-2xl font-bold text-white mb-4">Immediate Service</h3>
-                            <ul className="space-y-3 mb-6">
-                                {['Technician arrives in 30-60 mins', 'Priority booking', 'Emergency support available'].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-300 text-sm">
-                                        <span className="w-5 h-5 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center flex-shrink-0">
-                                            <svg className="w-3 h-3 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                            <p className="text-amber-400 font-bold">Perfect for urgent issues</p>
+            {/* Bottom CTA */}
+            <section className="section">
+                <div className="container">
+                    <div className="services-cta glass-card">
+                        <h2>Apni Service Nahi Mili? 🤔</h2>
+                        <p>Ham almost har ghar ki zaroorat ka kख़याल rakhte hain. Abhi call karo ya book karo.</p>
+                        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '12px' }}>
+                            <a href="tel:+919999999999" className="btn btn-primary">📞 Call Us Now</a>
+                            <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer" className="btn btn-outline">💬 WhatsApp</a>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 

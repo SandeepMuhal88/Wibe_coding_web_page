@@ -1,0 +1,336 @@
+.booking-page {
+    min-height: 100vh;
+}
+
+.booking-hero {
+    padding-bottom: 60px;
+}
+
+.booking-section {
+    padding-top: 0;
+}
+
+.booking-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Progress Steps */
+.steps-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.sp-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    flex: 1;
+}
+
+.sp-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: var(--transition);
+    z-index: 1;
+    position: relative;
+}
+
+.sp-step.active .sp-circle {
+    border-color: var(--primary);
+    background: rgba(255, 107, 53, 0.15);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+}
+
+.sp-step.done .sp-circle {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+}
+
+.sp-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.sp-step.active .sp-label {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.sp-step.done .sp-label {
+    color: #10b981;
+}
+
+.sp-line {
+    position: absolute;
+    top: 25px;
+    left: calc(50% + 26px);
+    right: calc(-50% + 26px);
+    height: 2px;
+    background: var(--border-glass);
+    z-index: 0;
+}
+
+.sp-line.filled {
+    background: #10b981;
+}
+
+/* Form Card */
+.booking-form-card {
+    padding: 40px 48px;
+    margin-bottom: 24px;
+}
+
+.form-step {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-step-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.col-full {
+    grid-column: 1 / -1;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 13px 16px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: var(--transition);
+    outline: none;
+    width: 100%;
+}
+
+.field-group select option {
+    background: #111827;
+    color: var(--text-primary);
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+    border-color: var(--primary);
+    background: rgba(255, 107, 53, 0.05);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.field-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.field-group input.error,
+.field-group select.error,
+.field-group textarea.error {
+    border-color: #ef4444;
+}
+
+.field-error {
+    font-size: 0.8rem;
+    color: #ef4444;
+    font-weight: 500;
+}
+
+/* Phone prefix */
+.input-with-prefix {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.input-with-prefix:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.prefix {
+    padding: 13px 12px;
+    background: rgba(255, 107, 53, 0.1);
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-right: 1px solid var(--border-glass);
+    white-space: nowrap;
+}
+
+.input-with-prefix input {
+    border: none;
+    border-radius: 0;
+    flex: 1;
+    outline: none;
+    box-shadow: none !important;
+}
+
+.input-with-prefix input:focus {
+    border: none;
+    box-shadow: none !important;
+    outline: none;
+}
+
+/* Summary */
+.booking-summary {
+    padding: 24px;
+    background: rgba(255, 107, 53, 0.04) !important;
+    border-color: rgba(255, 107, 53, 0.2) !important;
+}
+
+.booking-summary h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.summary-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}
+
+.summary-row span:first-child {
+    color: var(--text-muted);
+}
+
+.summary-row span:last-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Form Nav */
+.form-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-glass);
+    margin-top: 12px;
+}
+
+.form-nav .btn {
+    min-width: 160px;
+}
+
+/* Trust Box */
+.trust-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.trust-badge {
+    padding: 16px 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-radius: var(--radius-md) !important;
+}
+
+.trust-badge-icon {
+    font-size: 1.5rem;
+}
+
+.trust-badge-text {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Date Input Styling */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) opacity(0.5);
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .booking-form-card {
+        padding: 28px 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trust-box {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sp-label {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-box {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sp-circle {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+    }
+}

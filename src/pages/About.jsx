@@ -1,112 +1,190 @@
+import { Link } from 'react-router-dom';
+import './About.css';
+
+const whatWeDo = [
+    {
+        icon: '⚡',
+        title: 'Electrical Solutions',
+        desc: 'Short circuit se lekar full wiring tak — hamare certified electricians sab handle karte hain. Safe, fast aur reliable.',
+        color: '#FACC15',
+    },
+    {
+        icon: '❄️',
+        title: 'AC & Cooling Services',
+        desc: 'AC service, deep clean, gas refill, PCB repair, compressor replace — sabkuch ek phone par. Summers ka solution.',
+        color: '#00D4FF',
+    },
+    {
+        icon: '🔧',
+        title: 'Mechanic & Repair',
+        desc: 'Motor, pump, machine, pipe — mechanical kaam ke liye experienced mistri apke darwaaze par aate hain.',
+        color: '#A78BFA',
+    },
+    {
+        icon: '🚗',
+        title: 'Vehicle Services',
+        desc: 'Car aur bike doorstep service — oil change, brake check, tyre rotation — bina garage gaye.',
+        color: '#34D399',
+    },
+    {
+        icon: '🏠',
+        title: 'Home Maintenance',
+        desc: 'Plumbing, painting, carpentry, cleaning — ghar ka koi bhi kaam hame call karo.',
+        color: '#FB923C',
+    },
+    {
+        icon: '📺',
+        title: 'Appliance Repair',
+        desc: 'TV, washing machine, fridge, microwave — har appliance ki repair apke ghar par, genuine parts ke saath.',
+        color: '#818CF8',
+    },
+];
+
+const values = [
+    { icon: '🛡️', title: 'Fully Verified', desc: 'Har mistri ka police verification aur skill test hota hai.' },
+    { icon: '⚡', title: 'Lightning Fast', desc: '60 min mein expert apke ghar pe — guaranteed.' },
+    { icon: '💰', title: 'Fair Pricing', desc: 'Koi hidden charges nahi. Jo dikhayein wohi billing.' },
+    { icon: '⭐', title: 'Quality Work', desc: '30 din ki service warranty har kaam pe.' },
+];
+
+const team = [
+    { name: 'Sandeep Singh', role: 'Founder & CEO', emoji: '👨‍💼', color: '#FF6B35' },
+    { name: 'Priya Sharma', role: 'Operations Head', emoji: '👩‍💼', color: '#00D4FF' },
+    { name: 'Rahul Gupta', role: 'Tech Lead', emoji: '👨‍💻', color: '#A78BFA' },
+    { name: 'Anita Verma', role: 'Customer Success', emoji: '👩‍🎧', color: '#34D399' },
+];
+
 const About = () => {
     return (
-        <div className="min-h-screen bg-gradient-hero">
-            {/* Hero */}
-            <section className="relative pt-32 pb-20 overflow-hidden grid-pattern">
-                <div className="blob-1 top-10 right-10 opacity-40"></div>
-                <div className="blob-2 bottom-0 left-10 opacity-30"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center fade-in-up">
-                        <span className="badge badge-primary mb-4">Our Story</span>
-                        <h1 className="text-5xl md:text-7xl font-black text-white mb-6">
-                            About <span className="gradient-text">Incall</span>
-                        </h1>
-                        <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
-                            Your trusted partner for professional home services
+        <main className="about-page">
+            {/* Page Hero */}
+            <section className="page-hero">
+                <div className="page-hero-blob blob-a" />
+                <div className="page-hero-blob blob-b" />
+                <div className="container page-hero-inner">
+                    <span className="badge">🏢 About INcall</span>
+                    <h1>Hamare <span className="gradient-text">Baare Mein</span></h1>
+                    <p>Ek aisa platform jo India ke ghar-ghar tak quality service pahunchata hai — quickly, safely, aur affordably.</p>
+                </div>
+            </section>
+
+            {/* Story Section */}
+            <section className="section story-section">
+                <div className="container story-grid">
+                    <div className="story-content">
+                        <span className="badge">📖 Our Story</span>
+                        <h2 className="section-title">INcall Kyu Bana?</h2>
+                        <p className="story-para">
+                            2023 mein jab hamare founder <strong>Sandeep Singh</strong> ki AC garama me kharab hui aur 3 din tak koi reliable mistri nahi mila — tab INcall ka idea aaya.
                         </p>
+                        <p className="story-para">
+                            Unhone socha — ek aisa platform hona chahiye jahan <strong>ek call pe verified, skilled, aur affordable mistri aaye</strong> — bina kisi jhanjhat ke.
+                        </p>
+                        <p className="story-para">
+                            Aaj INcall Delhi NCR se shuru hokar poore India mein 10,000+ families ki pehli choice ban chuka hai.
+                        </p>
+                        <Link to="/booking" className="btn btn-primary" style={{ width: 'fit-content', marginTop: '16px' }}>
+                            📞 Book Your First Service
+                        </Link>
                     </div>
-                </div>
-            </section>
-
-            {/* Mission */}
-            <section className="py-20 section-dark">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <span className="badge badge-primary mb-4">Our Mission</span>
-                            <h2 className="text-4xl font-black text-white mb-6">
-                                Revolutionizing <span className="gradient-text">Home Services</span>
-                            </h2>
-                            <p className="text-slate-400 text-base leading-relaxed mb-4">
-                                At Incall, we're on a mission to revolutionize how people access home services. We believe that getting your AC fixed, plumbing issues resolved, or car serviced shouldn't be a hassle.
-                            </p>
-                            <p className="text-slate-400 text-base leading-relaxed mb-4">
-                                We've built a platform that connects you with verified, skilled technicians who can reach your doorstep at your convenience — whether you need immediate assistance or want to schedule for later.
-                            </p>
-                            <p className="text-slate-400 text-base leading-relaxed">
-                                With transparent pricing, quality assurance, and customer satisfaction at our core, we're making home services simple, reliable, and affordable for everyone.
-                            </p>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                            {[
-                                { icon: '🎯', value: '10K+', label: 'Happy Customers', color: 'from-indigo-500/20 to-purple-500/20', border: 'border-indigo-500/20', text: 'text-indigo-400' },
-                                { icon: '👨‍🔧', value: '500+', label: 'Expert Technicians', color: 'from-purple-500/20 to-pink-500/20', border: 'border-purple-500/20', text: 'text-purple-400' },
-                                { icon: '⭐', value: '4.8/5', label: 'Average Rating', color: 'from-yellow-500/20 to-orange-500/20', border: 'border-yellow-500/20', text: 'text-yellow-400' },
-                                { icon: '🏆', value: '15K+', label: 'Services Completed', color: 'from-emerald-500/20 to-cyan-500/20', border: 'border-emerald-500/20', text: 'text-emerald-400' },
-                            ].map((stat, i) => (
-                                <div key={i} className={`glass-card rounded-2xl p-6 text-center border ${stat.border}`}>
-                                    <div className="text-3xl mb-2">{stat.icon}</div>
-                                    <div className={`text-2xl font-black ${stat.text} mb-1`}>{stat.value}</div>
-                                    <div className="text-slate-400 text-xs">{stat.label}</div>
-                                </div>
-                            ))}
+                    <div className="story-visual">
+                        <div className="story-cards-wrap">
+                            <div className="story-stat-card glass-card sc-1">
+                                <div className="story-stat-val gradient-text">2023</div>
+                                <div className="story-stat-lbl">Founded</div>
+                            </div>
+                            <div className="story-stat-card glass-card sc-2">
+                                <div className="story-stat-val gradient-text">10K+</div>
+                                <div className="story-stat-lbl">Happy Customers</div>
+                            </div>
+                            <div className="story-stat-card glass-card sc-3">
+                                <div className="story-stat-val gradient-text">500+</div>
+                                <div className="story-stat-lbl">Expert Mistriyan</div>
+                            </div>
+                            <div className="story-stat-card glass-card sc-4">
+                                <div className="story-stat-val gradient-text">20+</div>
+                                <div className="story-stat-lbl">Cities in India</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Core Values */}
-            <section className="py-20 bg-gradient-section relative overflow-hidden">
-                <div className="blob-3 top-0 right-0 opacity-30"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-14">
-                        <span className="badge badge-primary mb-4">What Drives Us</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                            Our Core <span className="gradient-text">Values</span>
-                        </h2>
+            {/* What We Do */}
+            <section className="section what-we-do">
+                <div className="container">
+                    <div className="section-header">
+                        <span className="badge">🛠️ What We Do</span>
+                        <h2>Hum Kya <span className="gradient-text">Karte Hain</span></h2>
+                        <p>INcall pe aapko milega India ka best home service experience — har zaroorat ke liye ek solution.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                            { icon: '🤝', title: 'Trust & Transparency', desc: 'We believe in complete transparency. From pricing to service quality, what you see is what you get. No hidden charges, no surprises.', color: 'from-indigo-500/20 to-purple-500/20', border: 'border-indigo-500/20' },
-                            { icon: '💯', title: 'Quality First', desc: 'Every technician is background-verified and trained to deliver exceptional service. Your satisfaction is our priority.', color: 'from-emerald-500/20 to-cyan-500/20', border: 'border-emerald-500/20' },
-                            { icon: '⚡', title: 'Speed & Reliability', desc: 'Whether you need immediate help or want to schedule for later, we\'re committed to being there when you need us.', color: 'from-yellow-500/20 to-orange-500/20', border: 'border-yellow-500/20' },
-                        ].map((item, i) => (
-                            <div key={i} className={`glass-card rounded-2xl p-8 text-center border ${item.border}`}>
-                                <div className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-4xl`}>
-                                    {item.icon}
+
+                    <div className="wwd-grid">
+                        {whatWeDo.map((item, i) => (
+                            <div key={i} className="wwd-card glass-card" style={{ '--wwd-color': item.color }}>
+                                <div className="wwd-icon" style={{ background: `${item.color}15`, border: `1px solid ${item.color}25` }}>
+                                    <span>{item.icon}</span>
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                                <h3 className="wwd-title">{item.title}</h3>
+                                <p className="wwd-desc">{item.desc}</p>
+                                <div className="wwd-underline" style={{ background: item.color }}></div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* How We Work */}
-            <section className="py-20 section-dark relative overflow-hidden">
-                <div className="blob-1 bottom-0 left-0 opacity-20"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-14">
-                        <span className="badge badge-primary mb-4">Our Process</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                            How We <span className="gradient-text">Work</span>
-                        </h2>
-                        <p className="text-slate-400 text-lg">Our process ensures quality at every step</p>
+            {/* Our Values */}
+            <section className="section values-section">
+                <div className="container">
+                    <div className="section-header">
+                        <span className="badge">💎 Our Values</span>
+                        <h2>Jo Cheez Hume <span className="gradient-text">Alag Banati Hai</span></h2>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {[
-                            { num: '01', title: 'Rigorous Screening', desc: 'All technicians undergo background verification and skill assessment' },
-                            { num: '02', title: 'Training Program', desc: 'Regular training sessions to keep technicians updated with latest techniques' },
-                            { num: '03', title: 'Quality Checks', desc: 'Every service is monitored and reviewed for quality assurance' },
-                            { num: '04', title: 'Customer Feedback', desc: 'We continuously improve based on customer reviews and ratings' },
-                        ].map((item, i) => (
-                            <div key={i} className="glass-card rounded-2xl p-6 text-center border border-indigo-500/10">
-                                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                                    <span className="text-white font-black text-lg">{item.num}</span>
+                    <div className="values-grid">
+                        {values.map((v, i) => (
+                            <div key={i} className="value-card glass-card">
+                                <div className="value-icon">{v.icon}</div>
+                                <h3 className="value-title">{v.title}</h3>
+                                <p className="value-desc">{v.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Mission & Vision */}
+            <section className="section mission-section">
+                <div className="container mission-grid">
+                    <div className="mission-card glass-card" style={{ borderColor: 'rgba(255,107,53,0.3)' }}>
+                        <div className="mission-icon">🎯</div>
+                        <h3>Hamara Mission</h3>
+                        <p>India ke har ghar tak affordable, reliable aur fast home services pahunchana — bina kisi jhamele ke.</p>
+                    </div>
+                    <div className="mission-card glass-card" style={{ borderColor: 'rgba(0,212,255,0.3)' }}>
+                        <div className="mission-icon">🔭</div>
+                        <h3>Hamara Vision</h3>
+                        <p>2026 tak India ka #1 home services platform banna aur 1 lakh+ mistri ko respect aur stable income dena.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Team */}
+            <section className="section team-section">
+                <div className="container">
+                    <div className="section-header">
+                        <span className="badge">👥 Team</span>
+                        <h2>Hamari <span className="gradient-text">Team</span></h2>
+                        <p>Passionate people jo aapki service ko best banate hain.</p>
+                    </div>
+                    <div className="team-grid">
+                        {team.map((member, i) => (
+                            <div key={i} className="team-card glass-card">
+                                <div className="team-avatar" style={{ background: `${member.color}15`, border: `2px solid ${member.color}30` }}>
+                                    <span>{member.emoji}</span>
                                 </div>
-                                <h3 className="text-base font-bold text-white mb-2">{item.title}</h3>
-                                <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>
+                                <h3 className="team-name">{member.name}</h3>
+                                <p className="team-role" style={{ color: member.color }}>{member.role}</p>
                             </div>
                         ))}
                     </div>
@@ -114,27 +192,18 @@ const About = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-20 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20"></div>
-                <div className="blob-1 top-0 left-1/4 opacity-40"></div>
-                <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="glass rounded-3xl p-12 border border-indigo-500/20">
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-                            Ready to Experience the <span className="gradient-text">Difference?</span>
-                        </h2>
-                        <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
-                            Join thousands of satisfied customers who trust Incall for their home services
-                        </p>
-                        <a
-                            href="/booking"
-                            className="btn-primary btn-glow px-10 py-4 text-lg font-bold rounded-2xl inline-flex items-center gap-3"
-                        >
-                            Book Your First Service →
-                        </a>
+            <section className="section">
+                <div className="container">
+                    <div className="about-cta glass-card">
+                        <h2>Ready to Experience <span className="gradient-text">INcall</span>?</h2>
+                        <p>Abhi book karo aur 30 minutes mein expert apke ghar pe.</p>
+                        <Link to="/booking" className="btn btn-primary" style={{ marginTop: '12px' }}>
+                            Book a Service →
+                        </Link>
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 
