@@ -87,7 +87,7 @@ const Home = () => {
                         </h1>
 
                         <p className="hero-subtitle animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-                            AC service 🆑, Electrician ⚡, Mechanic 🔧 — sab ek <strong>INcall</strong> pe.<br />
+                            AC service 🆑, Electrician ⚡, Mechanic 🔧 — sab ek <strong>MistriJi</strong> pe.<br />
                             Verified professionals, guaranteed work, fair price.
                         </p>
 

@@ -108,6 +108,17 @@ const allServices = [
         color: '#FB923C',
     },
     {
+        id: 11, category: 'Solar installation',
+        icon: '☀️', title: 'Solar Installation',
+        desc: 'Solar panel installation, battery setup, system maintenance — professional solar installation at affordable price.',
+        price: '₹599 se shuru',
+        rating: 4.7, reviews: 870,
+        time: 'Per day basis',
+        features: ['Solar Panel Installation', 'Battery Setup', 'System Maintenance', 'Solar Panel Installation', 'Solar Panel Installation'],
+        color: '#FB923C',
+
+    },
+    {
         id: 10, category: 'other',
         icon: '📺', title: 'TV / Appliance Repair',
         desc: 'LED TV, washing machine, refrigerator — sab ka repair apke ghar pe.',
@@ -116,7 +127,8 @@ const allServices = [
         time: '1-2 ghante',
         features: ['LED TV Repair', 'Washing Machine', 'Refrigerator', 'Microwave', 'Geyser'],
         color: '#818CF8',
-    },
+    }
+
 ];
 
 const Services = () => {
@@ -226,8 +238,8 @@ const Services = () => {
                         <h2>Apni Service Nahi Mili? 🤔</h2>
                         <p>Ham almost har ghar ki zaroorat ka kख़याल rakhte hain. Abhi call karo ya book karo.</p>
                         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '12px' }}>
-                            <a href="tel:+919999999999" className="btn btn-primary">📞 Call Us Now</a>
-                            <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer" className="btn btn-outline">💬 WhatsApp</a>
+                            <a href="tel:+91 9511582964" className="btn btn-primary">📞 Call Us Now</a>
+                            <a href="https://wa.me/919511582964" target="_blank" rel="noreferrer" className="btn btn-outline">💬 WhatsApp</a>
                         </div>
                     </div>
                 </div>
