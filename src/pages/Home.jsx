@@ -53,7 +53,7 @@ const testimonials = [
         name: 'Priya Verma',
         city: 'JNV College Bikaner',
         rating: 5,
-        text: 'INcall app se booking kar ke ek ghante mein electrician aa gaya. Kaam bhi seedha ho gaya. Highly recommended!',
+        text: 'MistriJi app se booking kar ke ek ghante mein electrician aa gaya. Kaam bhi seedha ho gaya. Highly recommended!',
         avatar: 'PV',
         avatarColor: '#00D4FF',
     },
@@ -246,7 +246,7 @@ const Home = () => {
                 <div className="container">
                     <div className="section-header">
                         <span className="badge">💬 Reviews</span>
-                        <h2>Log Kya Kehte Hain <span className="gradient-text">INcall</span> Ke Baare Mein</h2>
+                        <h2>Log Kya Kehte Hain <span className="gradient-text">MistriJi</span> Ke Baare Mein</h2>
                     </div>
 
                     <div className="grid-3">

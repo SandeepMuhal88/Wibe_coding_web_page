@@ -73,15 +73,15 @@ const About = () => {
                 <div className="container story-grid">
                     <div className="story-content">
                         <span className="badge">📖 Our Story</span>
-                        <h2 className="section-title">INcall Kyu Bana?</h2>
+                        <h2 className="section-title">MistriJi Kyu Bana?</h2>
                         <p className="story-para">
-                            2023 mein jab hamare founder <strong>Sandeep Singh</strong> ki AC garama me kharab hui aur 3 din tak koi reliable mistri nahi mila — tab INcall ka idea aaya.
+                            2023 mein jab hamare founder <strong>Sandeep Singh</strong> ki AC garama me kharab hui aur 3 din tak koi reliable mistri nahi mila — tab MistriJi ka idea aaya.
                         </p>
                         <p className="story-para">
                             Unhone socha — ek aisa platform hona chahiye jahan <strong>ek call pe verified, skilled, aur affordable mistri aaye</strong> — bina kisi jhanjhat ke.
                         </p>
                         <p className="story-para">
-                            Aaj INcall Delhi NCR se shuru hokar poore India mein 10,000+ families ki pehli choice ban chuka hai.
+                            Aaj MistriJi Delhi NCR se shuru hokar poore India mein 10,000+ families ki pehli choice ban chuka hai.
                         </p>
                         <Link to="/booking" className="btn btn-primary" style={{ width: 'fit-content', marginTop: '16px' }}>
                             📞 Book Your First Service
@@ -116,7 +116,7 @@ const About = () => {
                     <div className="section-header">
                         <span className="badge">🛠️ What We Do</span>
                         <h2>Hum Kya <span className="gradient-text">Karte Hain</span></h2>
-                        <p>INcall pe aapko milega India ka best home service experience — har zaroorat ke liye ek solution.</p>
+                        <p>MistriJi pe aapko milega India ka best home service experience — har zaroorat ke liye ek solution.</p>
                     </div>
 
                     <div className="wwd-grid">
@@ -195,7 +195,7 @@ const About = () => {
             <section className="section">
                 <div className="container">
                     <div className="about-cta glass-card">
-                        <h2>Ready to Experience <span className="gradient-text">INcall</span>?</h2>
+                        <h2>Ready to Experience <span className="gradient-text">MistriJi</span>?</h2>
                         <p>Abhi book karo aur 30 minutes mein expert apke ghar pe.</p>
                         <Link to="/booking" className="btn btn-primary" style={{ marginTop: '12px' }}>
                             Book a Service →
