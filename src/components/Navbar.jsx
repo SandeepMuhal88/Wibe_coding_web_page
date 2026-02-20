@@ -35,14 +35,14 @@ const Navbar = () => {
                             <circle cx="14" cy="13" r="3" fill="white" opacity="0.9" />
                             <defs>
                                 <linearGradient id="logoGrad" x1="3" y1="2" x2="25" y2="26" gradientUnits="userSpaceOnUse">
-                                    <stop stopColor="#FF6B35" />
-                                    <stop offset="1" stopColor="#FFad80" />
+                                    <stop stopColor="#cf4817ff" />
+                                    <stop offset="1" stopColor="#b04c16ff" />
                                 </linearGradient>
                             </defs>
                         </svg>
                     </div>
                     <span className="logo-text">
-                        <span>IN</span>call
+                        <span>Mistri</span>Ji
                     </span>
                 </Link>
 

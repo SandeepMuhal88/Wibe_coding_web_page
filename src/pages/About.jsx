@@ -62,7 +62,7 @@ const About = () => {
                 <div className="page-hero-blob blob-a" />
                 <div className="page-hero-blob blob-b" />
                 <div className="container page-hero-inner">
-                    <span className="badge">🏢 About INcall</span>
+                    <span className="badge">🏢 About MistriJi</span>
                     <h1>Hamare <span className="gradient-text">Baare Mein</span></h1>
                     <p>Ek aisa platform jo India ke ghar-ghar tak quality service pahunchata hai — quickly, safely, aur affordably.</p>
                 </div>

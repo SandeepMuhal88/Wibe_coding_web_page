@@ -43,7 +43,7 @@ const stats = [
 const testimonials = [
     {
         name: 'Rahul Sharma',
-        city: 'Delhi',
+        city: 'Bikaner',
         rating: 5,
         text: 'Bahut accha service tha! AC wallah bhai ne 30 min mein sab theek kar diya. Bahut professional the.',
         avatar: 'RS',
@@ -51,7 +51,7 @@ const testimonials = [
     },
     {
         name: 'Priya Verma',
-        city: 'Noida',
+        city: 'JNV College Bikaner',
         rating: 5,
         text: 'INcall app se booking kar ke ek ghante mein electrician aa gaya. Kaam bhi seedha ho gaya. Highly recommended!',
         avatar: 'PV',
@@ -59,7 +59,7 @@ const testimonials = [
     },
     {
         name: 'Amit Kumar',
-        city: 'Gurgaon',
+        city: 'JNV College Bikaner',
         rating: 5,
         text: 'Very affordable aur trusted service. Mechanic ne bike ki problem pehli baar mein pakad li. Zabardast!',
         avatar: 'AK',
@@ -83,7 +83,7 @@ const Home = () => {
 
                         <h1 className="hero-title animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
                             Ghar Baithe Bulao<br />
-                            <span className="gradient-text">Expert Mistriyaan</span>
+                            <span className="gradient-text">Expert Technicians</span>
                         </h1>
 
                         <p className="hero-subtitle animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
