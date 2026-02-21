@@ -111,7 +111,7 @@ const allServices = [
         id: 11, category: 'Solar installation',
         icon: '☀️', title: 'Solar Installation',
         desc: 'Solar panel installation, battery setup, system maintenance — professional solar installation at affordable price.',
-        price: '₹599 se shuru',
+        price: 'AS Required',
         rating: 4.7, reviews: 870,
         time: 'Per day basis',
         features: ['Solar Panel Installation', 'Battery Setup', 'System Maintenance', 'Solar Panel Installation', 'Solar Panel Installation'],

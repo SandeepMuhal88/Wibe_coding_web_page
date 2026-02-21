@@ -126,7 +126,7 @@ const Home = () => {
                             <div className="hero-card-header">
                                 <div className="hero-avatar">👷</div>
                                 <div>
-                                    <div className="hero-name">Rajesh Kumar</div>
+                                    <div className="hero-name">Sohil Khan </div>
                                     <div className="hero-role">AC Technician • 6 yrs exp</div>
                                 </div>
                                 <div className="hero-rating">⭐ 4.9</div>
@@ -134,11 +134,13 @@ const Home = () => {
                             <div className="hero-card-status">
                                 <span className="status-dot live"></span>
                                 <span>Available Now — ETA 25 min</span>
+
                             </div>
                             <div className="hero-card-services">
                                 <span className="service-chip">❄️ AC Repair</span>
                                 <span className="service-chip">🔧 Installation</span>
                                 <span className="service-chip">💨 Cleaning</span>
+                                <span className="service-chip">Visit Chargeable ₹100</span>
                             </div>
                         </div>
 
@@ -286,8 +288,8 @@ const Home = () => {
                                 <Link to="/booking" className="btn btn-primary">
                                     📞 Abhi Book Karo
                                 </Link>
-                                <a href="tel:+919999999999" className="btn btn-outline">
-                                    Call: +91 99999 99999
+                                <a href="tel:+919511582964" className="btn btn-outline">
+                                    Call: +91 9511582964
                                 </a>
                             </div>
                         </div>
