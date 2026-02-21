@@ -75,7 +75,7 @@ const About = () => {
                         <span className="badge">📖 Our Story</span>
                         <h2 className="section-title">MistriJi Kyu Bana?</h2>
                         <p className="story-para">
-                            2023 mein jab hamare founder <strong>Sandeep Singh</strong> ki AC garama me kharab hui aur 3 din tak koi reliable mistri nahi mila — tab MistriJi ka idea aaya.
+                            2023 mein jab hamare founder <strong>Sandeep Singh</strong> ki AC Garmiyo me kharab hui aur 3 din tak koi reliable mistri nahi mila — tab MistriJi ka idea aaya.
                         </p>
                         <p className="story-para">
                             Unhone socha — ek aisa platform hona chahiye jahan <strong>ek call pe verified, skilled, aur affordable mistri aaye</strong> — bina kisi jhanjhat ke.
